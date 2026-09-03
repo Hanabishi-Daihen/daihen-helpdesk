@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #cc785c;
+  --primary-hover: #b8674d;
+  --primary-active: #a9583e;
+  --primary-light: #fbeee9;
+  --canvas: #faf9f5;
+  --surface-card: #efe9de;
+  --surface-soft: #f5f0e8;
+  --surface-cream-strong: #e8e0d2;
+  --surface-dark: #181715;
+  --surface-dark-elevated: #252320;
+  --surface-dark-soft: #1f1e1b;
+  --hairline: #e6dfd8;
+  --hairline-soft: #ebe6df;
+  --ink: #141413;
+  --body: #3d3d3a;
+  --body-strong: #252523;
+  --muted: #6c6a64;
+  --muted-soft: #8e8b82;
+  --accent-teal: #5db8a6;
+  --accent-amber: #e8a55a;
+  --success: #5db872;
+  --warning: #d4a017;
+  --error: #c64545;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+  background-color: var(--canvas);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-claude {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 106, 100, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 106, 100, 0.45);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Material Design 3 interactive ripple-like surface */
+.md3-state-layer {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 150ms cubic-bezier(0.2, 0, 0, 1), transform 150ms cubic-bezier(0.2, 0, 0, 1), box-shadow 150ms cubic-bezier(0.2, 0, 0, 1);
+}
+.md3-state-layer:active {
+  transform: scale(0.98);
+}
+
+@keyframes badgePulse {
+  0% { box-shadow: 0 0 0 0 rgba(198, 69, 69, 0.5); }
+  70% { box-shadow: 0 0 0 7px rgba(198, 69, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(198, 69, 69, 0); }
+}
+.badge-pulse {
+  animation: badgePulse 2s infinite;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
