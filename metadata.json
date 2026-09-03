@@ -1,0 +1,6 @@
+{
+  "name": "Helpdesk & Issue Tracking",
+  "description": "ระบบแจ้งปัญหาออนไลน์และติดตามงานสไตล์ Claude Design System ผสาน Material Design 3 รองรับมือถือและเดสก์ท็อปอย่างลื่นไหล",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

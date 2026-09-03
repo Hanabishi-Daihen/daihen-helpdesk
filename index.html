@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Helpdesk &amp; Issue Tracking</title>
+    <meta name="description" content="ระบบแจ้งปัญหาออนไลน์และติดตามงานสไตล์ Claude Design System ผสาน Material Design 3 รองรับมือถือและเดสก์ท็อปอย่างลื่นไหล" />
+    <meta property="og:title" content="Helpdesk &amp; Issue Tracking" />
+    <meta property="og:description" content="ระบบแจ้งปัญหาออนไลน์และติดตามงานสไตล์ Claude Design System ผสาน Material Design 3 รองรับมือถือและเดสก์ท็อปอย่างลื่นไหล" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Google Apps Script Deep Link Support (Works seamlessly in both GAS & Web preview)
+      window.GAS_DEEP_LINK_ISSUE_ID = (function() {
+        try {
+          var gasVal = "<?!= deepLinkIssueId ?>";
+          if (gasVal && gasVal.indexOf("<?") === -1) return gasVal;
+        } catch(e) {}
+        try {
+          return new URLSearchParams(window.location.search).get('issue') || '';
+        } catch(e) {
+          return '';
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[#faf9f5] text-[#141413] antialiased selection:bg-[#cc785c]/20 selection:text-[#141413]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
