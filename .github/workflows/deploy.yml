@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # หรือเปลี่ยนเป็น master ถ้าสาขาหลักของคุณชื่อ master
+  workflow_dispatch:   # อนุญาตให้กดสั่งรันด้วยตนเองได้
+
+# กำหนดสิทธิ์ให้ GitHub Action สามารถเขียนข้อมูลขึ้น GitHub Pages ได้
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # ดึงโค้ดจาก Repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ติดตั้ง Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # ติดตั้ง Dependencies และทำการ Build โปรเจกต์
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      # อัปโหลดไฟล์ผลลัพธ์ในโฟลเดอร์ dist ไปยัง branch gh-pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
